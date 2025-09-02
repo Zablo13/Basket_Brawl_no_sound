@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ss5n6c3qw0ep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alv5g"]
+size = Vector2(461, 38.9997)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3m1d4"]
+size = Vector2(174, 242)
+
+[node name="Barrier2" type="StaticBody2D"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(109.5, 2.50013)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_alv5g")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -104)
+rotation = 4.71239
+shape = SubResource("RectangleShape2D_3m1d4")
+one_way_collision = true

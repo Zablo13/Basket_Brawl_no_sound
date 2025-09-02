@@ -1,0 +1,158 @@
+[gd_scene load_steps=16 format=3 uid="uid://cn4e7xgpag5da"]
+
+[ext_resource type="Script" uid="uid://dw706hpwjjnpx" path="res://Script/game.gd" id="1_3dohp"]
+[ext_resource type="PackedScene" uid="uid://dca5vujf70csg" path="res://Scenes/player.tscn" id="1_eufa7"]
+[ext_resource type="PackedScene" uid="uid://brwhn0uc20j30" path="res://Scenes/floor.tscn" id="2_3krv7"]
+[ext_resource type="PackedScene" uid="uid://dhec1n1vyr1o0" path="res://Scenes/basket.tscn" id="3_3kvpb"]
+[ext_resource type="PackedScene" uid="uid://vnkokrbxd2ks" path="res://Scenes/cloudman.tscn" id="3_vbydp"]
+[ext_resource type="PackedScene" uid="uid://c3n15huvjnsbu" path="res://Scenes/ball.tscn" id="5_c1os4"]
+[ext_resource type="PackedScene" uid="uid://31o4w1ii2xbf" path="res://Scenes/cloud1.tscn" id="5_p5kt2"]
+[ext_resource type="PackedScene" uid="uid://ck7vmv5vrjuyx" path="res://Scenes/cloud_2.tscn" id="6_16x83"]
+[ext_resource type="PackedScene" uid="uid://c6343vyarcemb" path="res://Scenes/damp.tscn" id="7_8e18c"]
+[ext_resource type="PackedScene" uid="uid://o8fam100kybc" path="res://Scenes/player_2.tscn" id="8_aqjtu"]
+[ext_resource type="Script" uid="uid://dny545dte8vdy" path="res://Script/camera_2d.gd" id="9_w3mc0"]
+[ext_resource type="PackedScene" uid="uid://hotuhx5fuit6" path="res://Scenes/player_3.tscn" id="10_142ly"]
+[ext_resource type="PackedScene" uid="uid://bbhx64fodysch" path="res://Scenes/player_4.tscn" id="11_dq4vt"]
+
+[sub_resource type="SystemFont" id="SystemFont_jfomw"]
+subpixel_positioning = 0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dp22x"]
+resource_local_to_scene = true
+resource_name = "Basketball"
+rough = true
+bounce = 0.6
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_3dohp")
+
+[node name="Floor" parent="." instance=ExtResource("2_3krv7")]
+
+[node name="cloudman" parent="Floor" instance=ExtResource("3_vbydp")]
+position = Vector2(705, -104)
+
+[node name="cloud" parent="Floor" instance=ExtResource("5_p5kt2")]
+top_level = false
+position = Vector2(654, -91)
+
+[node name="cloud2" parent="Floor" instance=ExtResource("6_16x83")]
+top_level = false
+position = Vector2(1000, 0)
+
+[node name="Basket" parent="Floor" instance=ExtResource("3_3kvpb")]
+unique_name_in_owner = true
+position = Vector2(1717, 404)
+
+[node name="Damp2" parent="Floor/Basket" instance=ExtResource("7_8e18c")]
+position = Vector2(160, 157)
+
+[node name="Damp5" parent="Floor/Basket" instance=ExtResource("7_8e18c")]
+position = Vector2(-95, 109)
+
+[node name="Basket2" parent="Floor" instance=ExtResource("3_3kvpb")]
+unique_name_in_owner = true
+position = Vector2(197, 404)
+
+[node name="Damp2" parent="Floor/Basket2" instance=ExtResource("7_8e18c")]
+position = Vector2(-155, 154)
+
+[node name="Damp5" parent="Floor/Basket2" instance=ExtResource("7_8e18c")]
+position = Vector2(93, 111)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+limit_left = 0
+limit_top = -10000
+limit_right = 1920
+limit_bottom = 10000
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("9_w3mc0")
+
+[node name="Pfeil1" type="Label" parent="Camera2D"]
+offset_left = 48.0
+offset_top = 1016.0
+offset_right = 117.0
+offset_bottom = 1066.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_jfomw")
+theme_override_font_sizes/font_size = 36
+text = "300
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pfeil2" type="Label" parent="Camera2D"]
+offset_left = 48.0
+offset_top = 1016.0
+offset_right = 117.0
+offset_bottom = 1066.0
+theme_override_colors/font_color = Color(0.388401, 0.470809, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_jfomw")
+theme_override_font_sizes/font_size = 36
+text = "300
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pfeil3" type="Label" parent="Camera2D"]
+offset_left = 48.0
+offset_top = 1016.0
+offset_right = 117.0
+offset_bottom = 1066.0
+theme_override_colors/font_color = Color(1, 0.537255, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_jfomw")
+theme_override_font_sizes/font_size = 36
+text = "300
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pfeil4" type="Label" parent="Camera2D"]
+offset_left = 48.0
+offset_top = 1016.0
+offset_right = 117.0
+offset_bottom = 1066.0
+theme_override_colors/font_color = Color(0.054902, 0.827451, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_jfomw")
+theme_override_font_sizes/font_size = 36
+text = "300
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ball" parent="." instance=ExtResource("5_c1os4")]
+unique_name_in_owner = true
+position = Vector2(952, -959)
+physics_material_override = SubResource("PhysicsMaterial_dp22x")
+gravity_scale = 1.0
+can_sleep = false
+linear_damp_mode = 1
+angular_damp_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("1_eufa7")]
+top_level = true
+position = Vector2(720, 150)
+
+[node name="Player2" parent="." instance=ExtResource("8_aqjtu")]
+top_level = true
+position = Vector2(1200, 150)
+
+[node name="Player3" parent="." instance=ExtResource("10_142ly")]
+top_level = true
+position = Vector2(520, 150)
+
+[node name="Player4" parent="." instance=ExtResource("11_dq4vt")]
+top_level = true
+position = Vector2(1400, 150)
+
+[connection signal="angry1" from="Floor" to="." method="_on_floor_angry_1"]
+[connection signal="angry2" from="Floor" to="." method="_on_floor_angry_2"]
+[connection signal="cry1" from="Floor" to="." method="_on_floor_cry_1"]
+[connection signal="cry2" from="Floor" to="." method="_on_floor_cry_2"]
+[connection signal="reset" from="Floor" to="." method="_on_floor_reset"]
+[connection signal="time_up" from="Floor" to="." method="_on_floor_time_up"]
+[connection signal="scored" from="Floor/Basket" to="Floor" method="_on_basket_scored"]
+[connection signal="scored" from="Floor/Basket2" to="Floor" method="_on_basket_2_scored"]
+[connection signal="out" from="Ball" to="." method="_on_ball_out"]

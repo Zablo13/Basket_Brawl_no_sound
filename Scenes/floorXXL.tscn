@@ -1,0 +1,127 @@
+[gd_scene load_steps=9 format=3 uid="uid://chsxhf4aeatrk"]
+
+[ext_resource type="Script" uid="uid://cq6cv0nd3cema" path="res://Script/floor.gd" id="1_ewmm4"]
+[ext_resource type="Texture2D" uid="uid://cvhapevrkhpcm" path="res://Grafik/Background/BackgroundXXL.png" id="2_cxirj"]
+[ext_resource type="AudioStream" uid="uid://bwr3rkm1rjn4g" path="res://Sound/495365__kirkpatricklive__coach_whistle_33_short.wav" id="3_u42kt"]
+[ext_resource type="Script" uid="uid://cop1vbgv4slbu" path="res://Script/timer.gd" id="4_32s7k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbabl"]
+size = Vector2(4870, 308.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b034p"]
+size = Vector2(629.375, 2381.75)
+
+[sub_resource type="SystemFont" id="SystemFont_m5ffv"]
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_4i0hd"]
+subpixel_positioning = 0
+
+[node name="Floor" type="StaticBody2D"]
+script = ExtResource("1_ewmm4")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1920, 1080)
+texture = ExtResource("2_cxirj")
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = -1
+anchor_right = 0.404167
+anchor_bottom = 0.0138889
+offset_left = -1923.0
+offset_top = -1786.0
+offset_right = 392.0
+offset_bottom = -1090.0
+color = Color(0, 0.447961, 0.734269, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1794, -154.188)
+shape = SubResource("RectangleShape2D_qbabl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1922, 2231.38)
+shape = SubResource("RectangleShape2D_qbabl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(-314.687, 1159.88)
+shape = SubResource("RectangleShape2D_b034p")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(4155, 1188)
+shape = SubResource("RectangleShape2D_b034p")
+
+[node name="anpfiff" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u42kt")
+volume_db = -30.0
+
+[node name="Announcer" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 849.0
+offset_top = 205.0
+offset_right = 1040.0
+offset_bottom = 342.0
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayerUI" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Panel" parent="CanvasLayerUI"]
+use_parent_material = true
+offset_left = 1890.0
+offset_top = 2100.0
+offset_right = 1950.0
+offset_bottom = 2140.0
+script = ExtResource("4_32s7k")
+metadata/_edit_use_anchors_ = true
+
+[node name="Min" type="Label" parent="CanvasLayerUI/Timer"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 40.0
+theme_override_fonts/font = SubResource("SystemFont_m5ffv")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sek" type="Label" parent="CanvasLayerUI/Timer"]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 60.0
+offset_bottom = 40.0
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Score1" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 200.0
+offset_top = 800.0
+offset_right = 305.0
+offset_bottom = 937.0
+theme_override_fonts/font = SubResource("SystemFont_4i0hd")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Score2" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 3540.0
+offset_top = 800.0
+offset_right = 3645.0
+offset_bottom = 937.0
+theme_override_fonts/font = SubResource("SystemFont_4i0hd")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Tommie_rockt" type="AudioStreamPlayer" parent="."]
+
+[connection signal="time_up" from="CanvasLayerUI/Timer" to="." method="_on_timer_time_up"]

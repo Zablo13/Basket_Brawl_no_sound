@@ -1,0 +1,248 @@
+[gd_scene load_steps=39 format=3 uid="uid://dca5vujf70csg"]
+
+[ext_resource type="Script" uid="uid://blnkbxbeaho7k" path="res://Script/player.gd" id="1_csu8h"]
+[ext_resource type="Texture2D" uid="uid://vghitby3ocrh" path="res://Grafik/Player/Player.png" id="2_4hqlt"]
+[ext_resource type="Texture2D" uid="uid://dbqru4as0i7ww" path="res://Grafik/Player/Player1W.png" id="3_2sv52"]
+[ext_resource type="Texture2D" uid="uid://dcnndqmvkj6iy" path="res://Grafik/Player/happyface.png" id="3_kp08i"]
+[ext_resource type="Texture2D" uid="uid://cblo5j4p8s5qy" path="res://Grafik/Player/player_arm.png" id="3_oxmx6"]
+[ext_resource type="Texture2D" uid="uid://bs2wdhbtxxr6i" path="res://Grafik/Player/punch.png" id="4_jih01"]
+[ext_resource type="Texture2D" uid="uid://dwgwqtat5hsu8" path="res://Grafik/Player/catch.png" id="5_lte80"]
+[ext_resource type="Texture2D" uid="uid://cnxlledi5cj8y" path="res://Grafik/Player/legs0a.png" id="7_1gpgd"]
+[ext_resource type="Texture2D" uid="uid://d0djdhex66mqv" path="res://Grafik/Player/legs1a.png" id="8_37mi4"]
+[ext_resource type="Texture2D" uid="uid://bobad8s2cxc37" path="res://Grafik/Player/P1taunt1.png" id="9_xoee1"]
+[ext_resource type="Texture2D" uid="uid://bh8nmmilee4rn" path="res://Grafik/Player/P1taunt2.png" id="10_5iaeu"]
+[ext_resource type="Texture2D" uid="uid://b7lj33y8rykp2" path="res://Grafik/Player/P1helm.png" id="10_ni3wk"]
+[ext_resource type="Texture2D" uid="uid://0sjwbc78cya3" path="res://Grafik/Player/star1.png" id="11_2y7u1"]
+[ext_resource type="Texture2D" uid="uid://cd1821k8yljne" path="res://Grafik/Player/P1taunt3.png" id="11_4j86n"]
+[ext_resource type="Texture2D" uid="uid://bdgs5ly3buacj" path="res://Grafik/Player/P1sad1.png" id="12_c85mv"]
+[ext_resource type="Texture2D" uid="uid://djru3ytnn20et" path="res://Grafik/Player/star2.png" id="12_nyefx"]
+[ext_resource type="Texture2D" uid="uid://ci88d6e8nrfw1" path="res://Grafik/Player/P1sad2.png" id="13_j5x24"]
+[ext_resource type="Texture2D" uid="uid://fk0o0ibgy77m" path="res://Grafik/Player/flames.png" id="14_p6ifm"]
+[ext_resource type="Texture2D" uid="uid://cwftuvbgq4smg" path="res://Grafik/Player/P1stunface2.png" id="14_yht7b"]
+[ext_resource type="Texture2D" uid="uid://cue8lkxohuan5" path="res://Grafik/Player/P1stun.png" id="15_tyh6o"]
+[ext_resource type="Texture2D" uid="uid://bmx0ygnuehjxu" path="res://Grafik/Player/run1.png" id="16_dbslp"]
+[ext_resource type="Texture2D" uid="uid://dox1amvg27t38" path="res://Grafik/Player/run1a.png" id="17_lcm5a"]
+[ext_resource type="Texture2D" uid="uid://bhwrvriudgf8h" path="res://Grafik/Player/crack1.png" id="17_s72up"]
+[ext_resource type="Texture2D" uid="uid://bdcqj5ax6pdh1" path="res://Grafik/Player/flames_low.png" id="17_vasvr"]
+[ext_resource type="Texture2D" uid="uid://t1kjoe8y1m5r" path="res://Grafik/Player/crack2.png" id="18_fmbve"]
+[ext_resource type="Script" uid="uid://dlcpjlns2ckyv" path="res://Script/catcher.gd" id="19_jpujd"]
+[ext_resource type="Texture2D" uid="uid://ed8frio3v4hg" path="res://Grafik/Player/crack3.png" id="20_2813s"]
+[ext_resource type="Texture2D" uid="uid://bwkhsqiomkf5i" path="res://Grafik/Player/block.png" id="21_ufvm0"]
+[ext_resource type="Texture2D" uid="uid://bjfa06c4ce62o" path="res://Grafik/Player/stunface1.png" id="22_vraaq"]
+[ext_resource type="Texture2D" uid="uid://dudrak68s1j0r" path="res://Grafik/Player/angryface1.png" id="23_573a0"]
+[ext_resource type="Texture2D" uid="uid://c3uluqmmjxngg" path="res://Grafik/Player/kiai.png" id="40_r471k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ditus"]
+radius = 24.0
+height = 96.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kr0fm"]
+radius = 29.1548
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qm6e1"]
+radius = 27.0
+height = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hoooh"]
+radius = 111.041
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fktag"]
+radius = 18.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_hkqlu"]
+color = Color(0, 0.83633, 0.149521, 1)
+thickness = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_2eprr"]
+color = Color(1, 0, 0, 1)
+thickness = 10
+
+[node name="Player" type="CharacterBody2D" groups=["Player", "Team1"]]
+script = ExtResource("1_csu8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -48)
+shape = SubResource("CapsuleShape2D_ditus")
+
+[node name="run1" type="Sprite2D" parent="."]
+position = Vector2(1.99978, -56)
+scale = Vector2(0.648438, 0.59375)
+texture = ExtResource("16_dbslp")
+
+[node name="run2" type="Sprite2D" parent="."]
+position = Vector2(1.99978, -56)
+scale = Vector2(0.648438, 0.59375)
+texture = ExtResource("17_lcm5a")
+
+[node name="Playersprite" type="Sprite2D" parent="."]
+position = Vector2(0, -56)
+scale = Vector2(0.648438, 0.59375)
+texture = ExtResource("2_4hqlt")
+
+[node name="walk1" type="Sprite2D" parent="Playersprite"]
+texture = ExtResource("3_2sv52")
+
+[node name="happy" type="Sprite2D" parent="Playersprite"]
+position = Vector2(0, -57.2632)
+texture = ExtResource("3_kp08i")
+
+[node name="angry" type="Sprite2D" parent="Playersprite"]
+position = Vector2(0, -57.2632)
+texture = ExtResource("23_573a0")
+
+[node name="stand" type="Sprite2D" parent="Playersprite"]
+position = Vector2(-1.54217, 69.0526)
+texture = ExtResource("7_1gpgd")
+
+[node name="walk2" type="Sprite2D" parent="Playersprite"]
+show_behind_parent = true
+position = Vector2(12.3373, 64)
+texture = ExtResource("8_37mi4")
+
+[node name="helm" type="Sprite2D" parent="Playersprite"]
+position = Vector2(0, -71.263)
+texture = ExtResource("10_ni3wk")
+
+[node name="taunt1" type="Sprite2D" parent="Playersprite"]
+position = Vector2(0, -57.263)
+texture = ExtResource("9_xoee1")
+
+[node name="taunt2" type="Sprite2D" parent="Playersprite"]
+position = Vector2(0, -57.263)
+texture = ExtResource("10_5iaeu")
+
+[node name="taunt3" type="Sprite2D" parent="Playersprite"]
+position = Vector2(0, -57.263)
+texture = ExtResource("11_4j86n")
+
+[node name="sad1" type="Sprite2D" parent="Playersprite"]
+position = Vector2(0, -57.263)
+texture = ExtResource("12_c85mv")
+
+[node name="sad2" type="Sprite2D" parent="Playersprite"]
+position = Vector2(0, -57.263)
+texture = ExtResource("13_j5x24")
+
+[node name="stunfaced" type="Sprite2D" parent="Playersprite"]
+position = Vector2(3.08433, -57.2632)
+texture = ExtResource("22_vraaq")
+
+[node name="stunfaced2" type="Sprite2D" parent="Playersprite"]
+position = Vector2(0, -57.263)
+texture = ExtResource("14_yht7b")
+
+[node name="stunfaced3" type="Sprite2D" parent="Playersprite"]
+position = Vector2(0, -57.263)
+texture = ExtResource("15_tyh6o")
+
+[node name="Center" type="Marker2D" parent="."]
+position = Vector2(0, -60)
+
+[node name="ball_marker" type="Marker2D" parent="Center"]
+unique_name_in_owner = true
+position = Vector2(110, 0)
+gizmo_extents = 5.0
+
+[node name="Catcher" type="Area2D" parent="Center/ball_marker" groups=["Hand", "Player", "Team1"]]
+unique_name_in_owner = true
+position = Vector2(-130, 60)
+collision_mask = 7
+script = ExtResource("19_jpujd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Center/ball_marker/Catcher" groups=["Hand", "Player", "Team1"]]
+position = Vector2(90, -60)
+shape = SubResource("CircleShape2D_kr0fm")
+debug_color = Color(6.257e-07, 0.647512, 0.208945, 0.42)
+
+[node name="Armsprite" type="Sprite2D" parent="Center"]
+position = Vector2(40, -2)
+texture = ExtResource("3_oxmx6")
+
+[node name="Boxersprite" type="Sprite2D" parent="Center/Armsprite"]
+position = Vector2(50, -1)
+texture = ExtResource("4_jih01")
+
+[node name="Catchersprite" type="Sprite2D" parent="Center/Armsprite"]
+position = Vector2(50, 1)
+texture = ExtResource("5_lte80")
+
+[node name="normalizer" type="Marker2D" parent="."]
+position = Vector2(130, -60)
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["Player", "Team1"]]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" groups=["Player"]]
+position = Vector2(0, -49)
+shape = SubResource("CapsuleShape2D_qm6e1")
+debug_color = Color(0.882538, 0.250046, 0.569533, 0.42)
+
+[node name="Stomper" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stomper"]
+shape = SubResource("CircleShape2D_hoooh")
+debug_color = Color(0.661701, 0.489383, 0.435123, 0.42)
+
+[node name="Smallstomper" type="Area2D" parent="Stomper"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stomper/Smallstomper"]
+position = Vector2(0, -13)
+shape = SubResource("CircleShape2D_fktag")
+
+[node name="Bigstunsprite" type="Sprite2D" parent="."]
+position = Vector2(32, -112)
+texture = ExtResource("11_2y7u1")
+
+[node name="Smallstunsprite" type="Sprite2D" parent="."]
+position = Vector2(-35, -102)
+texture = ExtResource("12_nyefx")
+
+[node name="Offsprite" type="Sprite2D" parent="."]
+position = Vector2(0, -119)
+texture = ExtResource("12_nyefx")
+
+[node name="Flamesprite" type="Sprite2D" parent="."]
+position = Vector2(-22, -23)
+scale = Vector2(0.75, 0.821429)
+texture = ExtResource("14_p6ifm")
+
+[node name="Flamesprite2" type="Sprite2D" parent="."]
+position = Vector2(-22, -23)
+scale = Vector2(0.75, 0.821429)
+texture = ExtResource("17_vasvr")
+
+[node name="crack1" type="Sprite2D" parent="."]
+texture = ExtResource("17_s72up")
+
+[node name="crack2" type="Sprite2D" parent="."]
+texture = ExtResource("18_fmbve")
+
+[node name="crack3" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.821429)
+texture = ExtResource("20_2813s")
+
+[node name="shield" type="Sprite2D" parent="."]
+position = Vector2(0, -137)
+scale = Vector2(0.75, 0.821429)
+texture = ExtResource("21_ufvm0")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -26.0
+offset_top = 6.0
+offset_right = 27.0
+offset_bottom = 33.0
+theme_override_styles/background = SubResource("StyleBoxLine_hkqlu")
+theme_override_styles/fill = SubResource("StyleBoxLine_2eprr")
+
+[node name="kiai" type="Sprite2D" parent="."]
+position = Vector2(24, -126)
+texture = ExtResource("40_r471k")
+
+[node name="punchin" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, -121)
+scale = Vector2(0.333333, 0.333333)
+texture = ExtResource("4_jih01")
+
+[connection signal="area_entered" from="Center/ball_marker/Catcher" to="." method="_on_catcher_area_entered"]
+[connection signal="body_exited" from="Center/ball_marker/Catcher" to="." method="_on_catcher_body_exited"]

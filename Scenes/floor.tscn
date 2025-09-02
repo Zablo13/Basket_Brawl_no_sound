@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://brwhn0uc20j30"]
+
+[ext_resource type="Script" uid="uid://cq6cv0nd3cema" path="res://Script/floor.gd" id="1_lx7ch"]
+[ext_resource type="Texture2D" uid="uid://pn2fnsxc4pdo" path="res://Grafik/Background/Background.png" id="3_ltow8"]
+[ext_resource type="Script" uid="uid://cop1vbgv4slbu" path="res://Script/timer.gd" id="4_6r13v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbabl"]
+size = Vector2(3236, 307.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b034p"]
+size = Vector2(616.749, 2383.5)
+
+[sub_resource type="SystemFont" id="SystemFont_m5ffv"]
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_4i0hd"]
+subpixel_positioning = 0
+
+[node name="Floor" type="StaticBody2D" groups=["Wall"]]
+script = ExtResource("1_lx7ch")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 0)
+texture = ExtResource("3_ltow8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -186.0
+offset_top = -1359.0
+offset_right = 2036.0
+offset_bottom = 996.0
+color = Color(3.17663e-06, 0.504663, 0.798905, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Wall"]]
+position = Vector2(904, -1234)
+shape = SubResource("RectangleShape2D_qbabl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." groups=["Wall"]]
+position = Vector2(960, 1153.5)
+shape = SubResource("RectangleShape2D_qbabl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." groups=["Wall"]]
+position = Vector2(-308, -111)
+shape = SubResource("RectangleShape2D_b034p")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="." groups=["Wall"]]
+position = Vector2(2228.63, 110.75)
+shape = SubResource("RectangleShape2D_b034p")
+
+[node name="Announcer" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 849.0
+offset_top = 205.0
+offset_right = 1040.0
+offset_bottom = 342.0
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayerUI" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Panel" parent="CanvasLayerUI"]
+use_parent_material = true
+offset_left = 930.0
+offset_top = 1020.0
+offset_right = 990.0
+offset_bottom = 1060.0
+script = ExtResource("4_6r13v")
+
+[node name="Min" type="Label" parent="CanvasLayerUI/Timer"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 40.0
+theme_override_fonts/font = SubResource("SystemFont_m5ffv")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sek" type="Label" parent="CanvasLayerUI/Timer"]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 60.0
+offset_bottom = 40.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score1" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 119.0
+offset_top = 125.0
+offset_right = 224.0
+offset_bottom = 262.0
+theme_override_fonts/font = SubResource("SystemFont_4i0hd")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score2" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 1701.0
+offset_top = 125.0
+offset_right = 1806.0
+offset_bottom = 262.0
+theme_override_fonts/font = SubResource("SystemFont_4i0hd")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="time_up" from="CanvasLayerUI/Timer" to="." method="_on_timer_time_up"]

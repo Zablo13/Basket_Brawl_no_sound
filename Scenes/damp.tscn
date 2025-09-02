@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6343vyarcemb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkha4"]
+size = Vector2(41, 58)
+
+[node name="Damp" type="Area2D" groups=["Basket"]]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Basket"]]
+shape = SubResource("RectangleShape2D_pkha4")

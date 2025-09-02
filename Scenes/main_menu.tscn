@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://detirkqw23g87"]
+
+[ext_resource type="Script" uid="uid://dixsb6pdnipw" path="res://Script/main_menu.gd" id="1_pei0a"]
+
+[sub_resource type="SystemFont" id="SystemFont_akche"]
+subpixel_positioning = 0
+
+[node name="Main_menu" type="Node2D"]
+script = ExtResource("1_pei0a")
+
+[node name="Single" type="Button" parent="."]
+offset_left = 859.0
+offset_top = 411.0
+offset_right = 1091.0
+offset_bottom = 513.0
+text = "Training"
+metadata/_edit_use_anchors_ = true
+
+[node name="VS" type="Button" parent="."]
+offset_left = 864.0
+offset_top = 594.0
+offset_right = 1096.0
+offset_bottom = 696.0
+text = "VS"
+metadata/_edit_use_anchors_ = true
+
+[node name="Teams" type="Button" parent="."]
+offset_left = 1229.0
+offset_top = 596.0
+offset_right = 1461.0
+offset_bottom = 698.0
+text = "Teams
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 870.0
+offset_top = 770.0
+offset_right = 1102.0
+offset_bottom = 872.0
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[node name="Coop" type="Button" parent="."]
+offset_left = 524.0
+offset_top = 592.0
+offset_right = 756.0
+offset_bottom = 694.0
+text = "Team Training"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1919.0
+offset_bottom = 359.0
+theme_override_fonts/font = SubResource("SystemFont_akche")
+theme_override_font_sizes/font_size = 100
+text = "Basket Brawl"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 831.0
+offset_top = 259.0
+offset_right = 1118.0
+offset_bottom = 329.0
+theme_override_font_sizes/font_size = 36
+text = "1.0 Ready 4 Release?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Single" to="." method="_on_single_pressed"]
+[connection signal="pressed" from="VS" to="." method="_on_vs_pressed"]
+[connection signal="pressed" from="Teams" to="." method="_on_teams_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Coop" to="." method="_on_coop_pressed"]

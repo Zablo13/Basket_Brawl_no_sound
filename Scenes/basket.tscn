@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhec1n1vyr1o0"]
+
+[ext_resource type="Script" uid="uid://5iud7xq5oclc" path="res://Script/basket.gd" id="1_ek5ca"]
+[ext_resource type="Script" uid="uid://tmeqcy5hv1f6" path="res://Script/damp.gd" id="2_1358c"]
+[ext_resource type="Texture2D" uid="uid://byw8c4mdykcha" path="res://Grafik/Basket/Basket.png" id="2_oulov"]
+[ext_resource type="Texture2D" uid="uid://deyo5b6xdn6c6" path="res://Grafik/Basket/Basket2.png" id="17_jdumd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7dvc"]
+size = Vector2(10, 6)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_51yy7"]
+b = Vector2(16, 144)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_o533j"]
+a = Vector2(72, 81)
+b = Vector2(88, -61)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xwynh"]
+a = Vector2(72, 80)
+b = Vector2(-77.0002, 79.9998)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjj03"]
+size = Vector2(149, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gskpq"]
+size = Vector2(225, 187.999)
+
+[node name="Basket" type="StaticBody2D" groups=["Basket"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ek5ca")
+
+[node name="Scorefield" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scorefield"]
+position = Vector2(0, -3)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_s7dvc")
+
+[node name="side_left" type="CollisionShape2D" parent="."]
+position = Vector2(-91, -64)
+shape = SubResource("SegmentShape2D_51yy7")
+
+[node name="side right" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_o533j")
+
+[node name="bottom" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 161)
+rotation = 3.14159
+shape = SubResource("SegmentShape2D_xwynh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 94)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_tjj03")
+one_way_collision = true
+
+[node name="Damp" type="Area2D" parent="." groups=["Basket"]]
+position = Vector2(0, -3)
+rotation = 3.14159
+collision_layer = 4
+script = ExtResource("2_1358c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damp" groups=["Basket"]]
+position = Vector2(0.500082, -32)
+shape = SubResource("RectangleShape2D_gskpq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("17_jdumd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, -3)
+texture = ExtResource("2_oulov")
+
+[connection signal="body_entered" from="Scorefield" to="." method="_on_area_2d_body_entered"]

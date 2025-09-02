@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3n15huvjnsbu"]
+
+[ext_resource type="Script" uid="uid://bew7uac5uhpjj" path="res://Script/ball.gd" id="1_xpsjp"]
+[ext_resource type="Texture2D" uid="uid://diinv0sike3ip" path="res://Grafik/Ball.png" id="2_8oq1c"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0s1m8"]
+resource_local_to_scene = true
+resource_name = "Basketball"
+rough = true
+bounce = 0.7
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w8tl5"]
+radius = 49.0408
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_so62e"]
+radius = 50.1597
+
+[node name="Ball" type="RigidBody2D" groups=["Ball"]]
+collision_layer = 2
+collision_mask = 5
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_0s1m8")
+gravity_scale = 1.5
+freeze_mode = 1
+script = ExtResource("1_xpsjp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w8tl5")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_so62e")
+debug_color = Color(0.843924, 0.311134, 0.563537, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8oq1c")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

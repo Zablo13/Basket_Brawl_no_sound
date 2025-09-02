@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://66iuws8m1y1c"]
+
+[ext_resource type="Script" uid="uid://bf362kpkgcdkm" path="res://Script/maincontrol.gd" id="1_4rbsf"]
+[ext_resource type="PackedScene" uid="uid://detirkqw23g87" path="res://Scenes/main_menu.tscn" id="1_xm0t0"]
+[ext_resource type="PackedScene" uid="uid://cn4e7xgpag5da" path="res://Scenes/game.tscn" id="3_5b4yh"]
+
+[node name="Maincontrol" type="Node2D"]
+script = ExtResource("1_4rbsf")
+
+[node name="Game" parent="." instance=ExtResource("3_5b4yh")]
+unique_name_in_owner = true
+
+[node name="Main_menu" parent="." instance=ExtResource("1_xm0t0")]
+
+[connection signal="time_up" from="Game" to="." method="_on_game_time_up"]
