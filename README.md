@@ -19,7 +19,7 @@ This is my very first self-developed game project, the artwork was drawn in Asep
 
 Clone the repository:
 
-git clone https://github.com/yourusername/BasketBrawl.git
+git clone https://github.com/Zablo13/Basket_Brawl_no_sound.git
 cd BasketBrawl
 
 
