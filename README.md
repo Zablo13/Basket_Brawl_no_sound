@@ -43,12 +43,7 @@ Button                                         Action
 ✖ (Cross)	                            Jump
 R2	                                     Dash
 L2	                                     Taunt / With ball = Power reset
-
-
-📸 Screenshots
-
-Add gameplay screenshots here:
-
+  
 
 
 🛠️ Tech Stack
