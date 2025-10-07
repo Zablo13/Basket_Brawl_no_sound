@@ -5,14 +5,14 @@ This is my very first self-developed game project, the artwork was drawn in Asep
 
 ✨ Features
 
-🎮 Local Multiplayer: Play 1v1 or 2v2 with friends.
+Local Multiplayer: Play 1v1 or 2v2 with friends.  
 
-🏀 Arcade-style Gameplay: Quick, fun, chaotic basketball battles.
+Arcade-style Gameplay: Quick, fun, chaotic basketball battles.  
 
-⚡ Competitive Moves: Slam dunks, trickshots, parries, and more.
+Competitive Moves: Slam dunks, trickshots, parries, and more.  
 
-🎨 Custom Assets: My very first self-developed game project.
-
+Custom Assets: My very first self-developed game project.  
+  
 
 
 🚀 How to Play
